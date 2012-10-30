@@ -1,3 +1,9 @@
+# NetBeans specific #
+nbproject/private/
+build/
+dist/
+
+# Class Files #
 *.class
 
 # Package Files #
