@@ -5,15 +5,20 @@
 package bartender;
 
 /**
+ * Main class creating instances
  *
- * @author Tomáš Sušánka
+ * @author Tomas Susanka
  */
-public class Bartender {
+public class Bartender
+{
 
 	/**
-	 * @param args the command line arguments
+	 * Main static function.
 	 */
-	public static void main(String[] args) {
-		System.out.println("Hello World");
+	public static void main(String[] args)
+	{
+		System.out.println("Program started.");
+		MainJFrame window = new MainJFrame();
+		window.setVisible(true);
 	}
 }
