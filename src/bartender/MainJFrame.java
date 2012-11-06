@@ -93,7 +93,7 @@ public class MainJFrame extends JFrame
 		loadProducts();
 		initProductLabels();
 
-		initLanguages();
+	//	initLanguages();
 	}
 
 	/**
@@ -102,16 +102,17 @@ public class MainJFrame extends JFrame
 	private void initLanguages()
 	{
 		JPanel pan = new JPanel(new BorderLayout());
+		GridLayout layout = new GridLayout(4, 1);
+		pan.setLayout(layout);
 		for (String lang : activeLanguages) {
 			System.out.println(lang);
 			ImageIcon icon = new ImageIcon(getClass().getResource("imgs/" + lang + ".jpg"));
 			JButton btn = new JButton("", icon);
 			btn.setPreferredSize(new Dimension(60, 26));
 			btn.setBorder(BorderFactory.createEmptyBorder());
-			pan.add(btn, BorderLayout.EAST);
+			pan.add(btn);
 		}
-
-		add(pan, BorderLayout.SOUTH);
+		add(pan, BorderLayout.EAST);
 	}
 
 	/**
