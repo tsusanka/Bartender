@@ -25,13 +25,16 @@ public class MainJFrame extends JFrame
 	/** @var JButton save button*/
 	private JButton savebtn;
 	
+	/** @var Language language for accesing words */
+	private Language lang;
 	
 
 	/**
 	 * Constructor initialazing components.
 	 */
-	public MainJFrame()
+	public MainJFrame(Language language)
 	{
+		lang = language;
 		initComponents();
 	}
 
@@ -40,7 +43,7 @@ public class MainJFrame extends JFrame
 	 */
 	private void initTop()
 	{
-		JLabel productsLabel = new JLabel("<html><b>Please choose a drink:</b></html>");
+		JLabel productsLabel = new JLabel("<html><b>" + lang.getSentence("choose") + "</b></html>");
 		productsLabel.setBorder(new EmptyBorder(new Insets(20, 10, 20, 0)));
 		add(productsLabel, BorderLayout.NORTH);
 	}
@@ -52,8 +55,8 @@ public class MainJFrame extends JFrame
 	{
 		JPanel pan = new JPanel(new BorderLayout());
 
-		ImageIcon okIcon = new ImageIcon(getClass().getResource("imgs/ok.png"));
-		savebtn = new JButton("Pay", okIcon);
+		ImageIcon okIcon = new ImageIcon(getClass().getResource("imgs/coins.png"));
+		savebtn = new JButton(lang.getSentence("pay"), okIcon);
 		savebtn.setPreferredSize(new Dimension(100, 60));
 		savebtn.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
 		/*

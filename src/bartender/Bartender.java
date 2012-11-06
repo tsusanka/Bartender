@@ -18,7 +18,8 @@ public class Bartender
 	public static void main(String[] args)
 	{
 		System.out.println("Program started.");
-		MainJFrame window = new MainJFrame();
+		Language lang = new Language("en");
+		MainJFrame window = new MainJFrame(lang);
 		window.setVisible(true);
 	}
 }
