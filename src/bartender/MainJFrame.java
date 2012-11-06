@@ -66,8 +66,8 @@ public class MainJFrame extends JFrame
 	{
 		JPanel pan = new JPanel(new BorderLayout());
 
-		ImageIcon coninsIcon = new ImageIcon(getClass().getResource("imgs/coins.png"));
-		payButton = new JButton(lang.getSentence("pay"), coninsIcon);
+		ImageIcon coinsIcon = new ImageIcon(getClass().getResource("imgs/coins.png"));
+		payButton = new JButton(lang.getSentence("pay"), coinsIcon);
 		payButton.setPreferredSize(new Dimension(150, 60));
 		payButton.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
 		/*
