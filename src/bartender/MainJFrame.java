@@ -33,30 +33,55 @@ public class MainJFrame extends JFrame
 	/**
 	 * @var Language language for accesing words
 	 */
-	private Language lang;
+	private Language currentLang;
 	/**
 	 * @var ArrayList<Product> products offered
 	 */
 	private ArrayList<Product> products;
 
 	/**
+	 * @var Container pane
+	 */
+	private Container pane;
+	
+	/**
+	 * @var GridBagContraints c
+	 */
+	private GridBagConstraints c;
+	
+	/**
 	 * Constructor initialazing components.
 	 */
 	public MainJFrame(Language language)
 	{
-		lang = language;
+		currentLang = language;
 		initComponents();
 	}
 
 	/**
 	 * Inicialization of top screen.
 	 */
-	private void initTop()
+	private void initMainPanel()
+	{
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+		pane = mainPanel;
+		add(mainPanel, BorderLayout.NORTH);
+		c = new GridBagConstraints();
+	}
+	
+	/**
+	 * Inicialization of top headline.
+	 */
+	public void initTop() 
 	{
 		JLabel productsLabel = new JLabel("<html><b><u>"
-				+ lang.getSentence("choose") + "</u></b></html>");
-		productsLabel.setBorder(new EmptyBorder(new Insets(20, 10, 20, 0)));
-		add(productsLabel, BorderLayout.NORTH);
+				+ currentLang.getSentence("choose") + "</u></b></html>");
+		
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 3;
+		c.insets = new Insets(10, 10, 10, 10);
+		pane.add(productsLabel, c);
 	}
 
 	/**
@@ -67,8 +92,8 @@ public class MainJFrame extends JFrame
 		JPanel pan = new JPanel(new BorderLayout());
 
 		ImageIcon coinsIcon = new ImageIcon(getClass().getResource("imgs/coins.png"));
-		payButton = new JButton(lang.getSentence("pay"), coinsIcon);
-		payButton.setPreferredSize(new Dimension(150, 60));
+		payButton = new JButton(currentLang.getSentence("pay"), coinsIcon);
+		payButton.setPreferredSize(new Dimension(150, 50));
 		payButton.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
 		/*
 		 * savebtn.addActionListener(new ActionListener() {
@@ -79,9 +104,12 @@ public class MainJFrame extends JFrame
 		 * }
 		 * });
 		 */
-		pan.add(payButton, BorderLayout.EAST);
-
-		add(pan, BorderLayout.SOUTH);
+			
+		c.gridx = 9;
+		c.gridy = 5;
+		c.gridwidth = 3;
+		c.insets = new Insets(10, 70, 10, 10);
+		pane.add(payButton, c);
 	}
 
 	/**
@@ -91,28 +119,27 @@ public class MainJFrame extends JFrame
 	{
 		//center components
 		loadProducts();
-		initProductLabels();
-
-	//	initLanguages();
+		initProductsBox();
+		initLanguages();
 	}
 
 	/**
 	 * Creates language flags.
 	 */
 	private void initLanguages()
-	{
-		JPanel pan = new JPanel(new BorderLayout());
-		GridLayout layout = new GridLayout(4, 1);
-		pan.setLayout(layout);
+	{			
+		int i = 1;
 		for (String lang : activeLanguages) {
-			System.out.println(lang);
 			ImageIcon icon = new ImageIcon(getClass().getResource("imgs/" + lang + ".jpg"));
 			JButton btn = new JButton("", icon);
 			btn.setPreferredSize(new Dimension(60, 26));
 			btn.setBorder(BorderFactory.createEmptyBorder());
-			pan.add(btn);
+			c.gridx = 9;
+			c.gridy = i++;
+			c.gridwidth = 3;
+			c.insets = new Insets(10, 10, 10, 10);
+			pane.add(btn, c);
 		}
-		add(pan, BorderLayout.EAST);
 	}
 
 	/**
@@ -123,7 +150,7 @@ public class MainJFrame extends JFrame
 		//TODO: loading products from file
 		products = new ArrayList<Product>();
 		products.add(new Product("Vodka", 20));
-		products.add(new Product("Captaing Morgane", 20));
+		products.add(new Product("Captain Morgane", 20));
 		products.add(new Product("Sissy mix", 20));
 		products.add(new Product("Whiskey", 20));
 		products.add(new Product("Becherovka", 20));
@@ -132,15 +159,21 @@ public class MainJFrame extends JFrame
 	/**
 	 * Initialize product labels.
 	 */
-	private void initProductLabels()
+	private void initProductsBox()
 	{
-		GridLayout layout = new GridLayout(7, 1);
-		setLayout(layout);
-
+		int i = 1;
 		for (Product product : products) {
 			JLabel label = new JLabel(product.getName());
-			label.setBorder(new EmptyBorder(new Insets(0, 30, 0, 0)));
-			add(label);
+			c.gridx = 0;
+			c.gridy = i++;
+			c.insets = new Insets(10, 10, 10, 10);
+			pane.add(label, c);
+			c.gridx = 5;
+			c.insets = new Insets(0, 0, 0, 0);
+			SpinnerModel modeltau = new SpinnerNumberModel(0, 0, 99, 1);
+			JSpinner spinner = new JSpinner(modeltau);
+			spinner.setPreferredSize(new Dimension(40, 40));
+			pane.add(spinner, c);
 		}
 	}
 
@@ -149,10 +182,9 @@ public class MainJFrame extends JFrame
 	 */
 	private void initComponents()
 	{
+		initMainPanel();
 		initTop();
-
 		initCenter();
-
 		initBottom();
 
 		setSize(WINDOW_W, WINDOW_H);
