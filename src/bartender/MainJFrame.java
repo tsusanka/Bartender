@@ -1,9 +1,7 @@
 package bartender;
 
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicBorders;
 
 /**
@@ -35,9 +33,9 @@ public class MainJFrame extends JFrame
 	 */
 	private Language currentLang;
 	/**
-	 * @var ArrayList<Product> products offered
+	 * @var ProductsAccess products offered
 	 */
-	private ArrayList<Product> products;
+	private Products products;
 
 	/**
 	 * @var Container pane
@@ -117,8 +115,6 @@ public class MainJFrame extends JFrame
 	 */
 	private void initCenter()
 	{
-		//center components
-		loadProducts();
 		initProductsBox();
 		initLanguages();
 	}
@@ -143,26 +139,13 @@ public class MainJFrame extends JFrame
 	}
 
 	/**
-	 * Loads products from file to products variable.
-	 */
-	private void loadProducts()
-	{
-		//TODO: loading products from file
-		products = new ArrayList<Product>();
-		products.add(new Product("Vodka", 20));
-		products.add(new Product("Captain Morgane", 20));
-		products.add(new Product("Sissy mix", 20));
-		products.add(new Product("Whiskey", 20));
-		products.add(new Product("Becherovka", 20));
-	}
-
-	/**
 	 * Initialize product labels.
 	 */
 	private void initProductsBox()
 	{
+		products = ProductsAccess.read();
 		int i = 1;
-		for (Product product : products) {
+		for (Product product : products.getAll()) {
 			JLabel label = new JLabel(product.getName());
 			c.gridx = 0;
 			c.gridy = i++;

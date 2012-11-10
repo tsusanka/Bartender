@@ -4,6 +4,8 @@
  */
 package bartender;
 
+import java.io.*;
+
 /**
  * Main class creating instances
  *
@@ -21,5 +23,7 @@ public class Bartender
 		Language lang = new Language("en");
 		MainJFrame window = new MainJFrame(lang);
 		window.setVisible(true);
+
+	
 	}
 }

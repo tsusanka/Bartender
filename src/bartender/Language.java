@@ -1,14 +1,12 @@
 package bartender;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Class representing particular language.
  *
  * All sentences in the application are taken from this class, which reads in
- * specific file, based on the language
- * selected by customer.
+ * specific file, based on the language, selected by customer.
  *
  * @author Tomas Susanka
  */
@@ -36,8 +34,9 @@ public class Language
 	}
 
 	/**
-	 * Loads language from a file;
-	 * @return boolean 
+	 * Loads language from a file
+	 *
+	 * @return boolean
 	 */
 	private boolean loadLanguage()
 	{
@@ -55,8 +54,9 @@ public class Language
 	 */
 	public String getSentence(String what)
 	{
-		if (!currentLang.containsKey(what))
+		if (!currentLang.containsKey(what)) {
 			return null;
+		}
 		return currentLang.get(what);
 	}
 }

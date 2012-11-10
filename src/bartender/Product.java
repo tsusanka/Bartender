@@ -5,7 +5,7 @@ package bartender;
  *
  * @author Tomas Susanka
  */
-public class Product
+public class Product implements java.io.Serializable
 {
 
 	/**
