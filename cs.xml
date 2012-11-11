@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<language code="cs">
+	<sentence what="choose">Vyberte si prosím nápoj:</sentence>
+	<sentence what="pay">Zaplatit</sentence>
+	<sentence what="waitingForPayment">Zpracováváme Vaši platbu...</sentence>
+	<sentence what="done">Vaše objednávka se připravuje. Děkujeme.</sentence>
+</language>

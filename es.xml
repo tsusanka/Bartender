@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<language code="es">
+	<sentence what="choose">Yo soy:</sentence>
+	<sentence what="pay">Tu eres</sentence>
+	<sentence what="waitingForPayment">Yo hablo no espanol</sentence>
+	<sentence what="done">Your order is being served. Thank you.</sentence>
+</language>
