@@ -3,6 +3,7 @@ package bartender;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicBorders;
 
@@ -103,6 +104,7 @@ public class MainJFrame extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent ae)
 			{
+				products.setAmountsOrdered();
 				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
 				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
 				Timer timer = new Timer(PAYMENT_WAITING_TIME, new ActionListener() //waiting three seconds for finishin payment
@@ -119,7 +121,7 @@ public class MainJFrame extends JFrame
 				dialog.setVisible(true);
 
 				// after three seconds pass show next dialog
-				DoneJFrame pf = new DoneJFrame(currentLang);
+				DoneJFrame pf = new DoneJFrame(currentLang, products);
 				hideFrame();
 				pf.showFrame();
 			}
@@ -166,7 +168,15 @@ public class MainJFrame extends JFrame
 	 */
 	private void initProductsBox()
 	{
-		products = ProductsAccess.read();
+		ArrayList<Product> x = new ArrayList<Product>();
+		x.add(new Product("Vodka", 20));
+		x.add(new Product("Captaing Morgane", 20));
+		x.add(new Product("Sissy mix", 20));
+		x.add(new Product("Whiskey", 20));
+		x.add(new Product("Becherovka", 20));
+		
+		products = new Products(x);
+		//products = ProductsAccess.read();
 		int i = 1;
 		for (Product product : products.getAll()) {
 			JLabel label = new JLabel(product.getName());
@@ -180,6 +190,7 @@ public class MainJFrame extends JFrame
 			JSpinner spinner = new JSpinner(modeltau);
 			spinner.setPreferredSize(new Dimension(40, 40));
 			pane.add(spinner, c);
+			product.setSpinner(spinner);
 		}
 	}
 

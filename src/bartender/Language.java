@@ -53,7 +53,7 @@ public final class Language
 	}
 
 	/**
-	 * Loads language from a file
+	 * Loads language from a XML file into array.
 	 *
 	 * @return boolean
 	 */

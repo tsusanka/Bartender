@@ -42,4 +42,13 @@ public class Products implements java.io.Serializable
 	{
 		return arr;
 	}
+	
+	/**
+	 * Sets amount of drinks customer ordered.
+	 */
+	public void setAmountsOrdered() {
+		for (Product product : arr) {
+			product.setAmount((Integer) product.getSpinner().getValue());
+		}
+	}
 }
