@@ -1,6 +1,8 @@
 package bartender;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicBorders;
 
@@ -13,17 +15,21 @@ public class MainJFrame extends JFrame
 {
 
 	/**
+	 * @var int waiting time for payment (showing dialog) in miliseconds
+	 */
+	private static final int PAYMENT_WAITING_TIME = 2000; 
+	/**
 	 * @var String[] active languages that can be selected
 	 */
 	private static final String[] activeLanguages = {"en", "cs", "es"};
 	/**
 	 * @var int Window width
 	 */
-	private final static int WINDOW_W = 500;
+	public final static int WINDOW_W = 500;
 	/**
 	 * @var int Window width
 	 */
-	private final static int WINDOW_H = 300;
+	public final static int WINDOW_H = 300;
 	/**
 	 * @var JButton save button
 	 */
@@ -36,17 +42,15 @@ public class MainJFrame extends JFrame
 	 * @var ProductsAccess products offered
 	 */
 	private Products products;
-
 	/**
 	 * @var Container pane
 	 */
 	private Container pane;
-	
 	/**
 	 * @var GridBagContraints c
 	 */
 	private GridBagConstraints c;
-	
+
 	/**
 	 * Constructor initialazing components.
 	 */
@@ -66,15 +70,15 @@ public class MainJFrame extends JFrame
 		add(mainPanel, BorderLayout.NORTH);
 		c = new GridBagConstraints();
 	}
-	
+
 	/**
 	 * Inicialization of top headline.
 	 */
-	public void initTop() 
+	public void initTop()
 	{
 		JLabel productsLabel = new JLabel("<html><b><u>"
 				+ currentLang.getSentence("choose") + "</u></b></html>");
-		
+
 		c.gridx = 0;
 		c.gridy = 0;
 		c.gridwidth = 3;
@@ -93,20 +97,39 @@ public class MainJFrame extends JFrame
 		payButton = new JButton(currentLang.getSentence("pay"), coinsIcon);
 		payButton.setPreferredSize(new Dimension(150, 50));
 		payButton.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
-		/*
-		 * savebtn.addActionListener(new ActionListener() {
-		 *
-		 * @Override
-		 * public void actionPerformed(ActionEvent ae) {
-		 * //performed?
-		 * }
-		 * });
-		 */
-			
+		payButton.addActionListener(new ActionListener() //adding action listener to show paying dialog
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent ae)
+			{
+				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
+				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
+				Timer timer = new Timer(PAYMENT_WAITING_TIME, new ActionListener() //waiting three seconds for finishin payment
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent ae)
+					{
+						dialog.setVisible(false); //hiding the dialog after three seconds pass
+					}
+				});
+				timer.setRepeats(false);
+				timer.start();
+				dialog.setVisible(true);
+
+				// after three seconds pass show next dialog
+				DoneJFrame pf = new DoneJFrame(currentLang);
+				hideFrame();
+				pf.showFrame();
+			}
+		});
+
 		c.gridx = 9;
 		c.gridy = 5;
 		c.gridwidth = 3;
 		c.insets = new Insets(10, 70, 10, 10);
+
 		pane.add(payButton, c);
 	}
 
@@ -123,7 +146,7 @@ public class MainJFrame extends JFrame
 	 * Creates language flags.
 	 */
 	private void initLanguages()
-	{			
+	{
 		int i = 1;
 		for (String lang : activeLanguages) {
 			ImageIcon icon = new ImageIcon(getClass().getResource("imgs/" + lang + ".jpg"));
@@ -174,5 +197,25 @@ public class MainJFrame extends JFrame
 		setTitle("Automatic Bartender");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+	}
+
+	/**
+	 * Shows the frame.
+	 *
+	 * Shortcut for setVisible(true).
+	 */
+	public void showFrame()
+	{
+		setVisible(true);
+	}
+
+	/**
+	 * Hides the frame.
+	 *
+	 * Shortcut for setVisible(false).
+	 */
+	public void hideFrame()
+	{
+		setVisible(false);
 	}
 }

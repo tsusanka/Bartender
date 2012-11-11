@@ -3,29 +3,29 @@ package bartender;
 import java.util.HashMap;
 
 /**
- * Class representing particular language.
+ *   Class representing particular language.
  *
- * All sentences in the application are taken from this class, which reads in
- * specific file, based on the language, selected by customer.
+ *   All sentences in the application are taken from this class, which reads in
+ *   specific file, based on the language, selected by customer.
  *
- * @author Tomas Susanka
+ *   @author Tomas Susanka
  */
 public class Language
 {
 
 	/**
-	 * @var String Language code representing language (en, fr..)
+	 *   @var String Language code representing language (en, fr..)
 	 */
 	String currentLangCode;
 	/**
-	 * @var HashMap loaded current language in HashMap.
+	 *   @var HashMap loaded current language in HashMap.
 	 */
 	HashMap<String, String> currentLang;
 
 	/**
-	 * Language constructor loads demanded language.
+	 *   Language constructor loads demanded language.
 	 *
-	 * @param languageCode
+	 *   @param languageCode
 	 */
 	public Language(String languageCode)
 	{
@@ -34,9 +34,9 @@ public class Language
 	}
 
 	/**
-	 * Loads language from a file
+	 *   Loads language from a file
 	 *
-	 * @return boolean
+	 *   @return boolean
 	 */
 	private boolean loadLanguage()
 	{
@@ -44,13 +44,15 @@ public class Language
 		currentLang = new HashMap<String, String>();
 		currentLang.put("choose", "Please choose a drink:");
 		currentLang.put("pay", "Pay");
+		currentLang.put("waitingForPayment", "Your payment is processing.");
+		currentLang.put("done", "Your order is being served. Thank you.");
 		return true;
 	}
 
 	/**
-	 * Returns apropriate sentence.
+	 *  Returns apropriate sentence.
 	 *
-	 * @param what
+	 *  @param what
 	 */
 	public String getSentence(String what)
 	{
