@@ -11,6 +11,8 @@ package bartender;
  */
 public class Bartender
 {
+	
+	private static final String DEFAULT_LANG = "en";
 
 	/**
 	 * Main static function.
@@ -18,8 +20,8 @@ public class Bartender
 	public static void main(String[] args)
 	{
 		System.out.println("Program started.");
-		Language lang = new Language("cs");
+		Language lang = new Language(DEFAULT_LANG);
 		MainJFrame window = new MainJFrame(lang);
-		window.setVisible(true);
+		window.showFrame();
 	}
 }

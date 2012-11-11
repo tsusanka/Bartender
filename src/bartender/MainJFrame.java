@@ -18,7 +18,7 @@ public class MainJFrame extends JFrame
 	/**
 	 * @var int waiting time for payment (showing dialog) in miliseconds
 	 */
-	private static final int PAYMENT_WAITING_TIME = 2000; 
+	private static final int PAYMENT_WAITING_TIME = 2000;
 	/**
 	 * @var String[] active languages that can be selected
 	 */
@@ -150,17 +150,31 @@ public class MainJFrame extends JFrame
 	private void initLanguages()
 	{
 		int i = 1;
-		for (String lang : activeLanguages) {
+		for (final String lang : activeLanguages) {
 			ImageIcon icon = new ImageIcon(getClass().getResource("imgs/" + lang + ".jpg"));
 			JButton btn = new JButton("", icon);
 			btn.setPreferredSize(new Dimension(60, 26));
 			btn.setBorder(BorderFactory.createEmptyBorder());
+			btn.addActionListener(new ActionListener() //adding action listener to show paying dialog
+			{
+
+				@Override
+				public void actionPerformed(ActionEvent ae)
+				{
+					MainJFrame newFrame = new MainJFrame(new Language(lang));
+					newFrame.showFrame();
+					hideFrame();
+				}
+			});
+				
 			c.gridx = 9;
 			c.gridy = i++;
 			c.gridwidth = 3;
 			c.insets = new Insets(10, 10, 10, 10);
+
 			pane.add(btn, c);
 		}
+
 	}
 
 	/**
@@ -174,7 +188,7 @@ public class MainJFrame extends JFrame
 		x.add(new Product("Sissy mix", 20));
 		x.add(new Product("Whiskey", 20));
 		x.add(new Product("Becherovka", 20));
-		
+
 		products = new Products(x);
 		//products = ProductsAccess.read();
 		int i = 1;
