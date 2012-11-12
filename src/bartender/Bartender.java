@@ -10,9 +10,19 @@ package bartender;
  * @author Tomas Susanka
  */
 public class Bartender
-{
-	
-	private static final String DEFAULT_LANG = "en";
+{	
+	/**
+	 * @var int Window width
+	 */
+	public final static int WINDOW_W = 500;
+	/**
+	 * @var int Window height
+	 */
+	public final static int WINDOW_H = 300;
+	/**
+	 * @var String default language
+	 */
+	public static final String DEFAULT_LANG = "en";
 
 	/**
 	 * Main static function.

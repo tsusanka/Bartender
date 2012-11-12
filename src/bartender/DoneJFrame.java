@@ -59,7 +59,7 @@ public class DoneJFrame extends JFrame
 		add(mainPanel, BorderLayout.NORTH);
 		
 		this.c = new GridBagConstraints();
-		setSize(MainJFrame.WINDOW_W, MainJFrame.WINDOW_H);
+		setSize(Bartender.WINDOW_W, Bartender.WINDOW_H);
 		setTitle("Automatic Bartender");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

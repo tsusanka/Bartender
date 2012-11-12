@@ -3,6 +3,7 @@ package bartender;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicBorders;
@@ -24,14 +25,6 @@ public class MainJFrame extends JFrame
 	 */
 	private static final String[] activeLanguages = {"en", "cs", "es"};
 	/**
-	 * @var int Window width
-	 */
-	public final static int WINDOW_W = 500;
-	/**
-	 * @var int Window width
-	 */
-	public final static int WINDOW_H = 300;
-	/**
 	 * @var JButton save button
 	 */
 	private JButton payButton;
@@ -51,6 +44,10 @@ public class MainJFrame extends JFrame
 	 * @var GridBagContraints c
 	 */
 	private GridBagConstraints c;
+	/**
+	 * @var JPanel mainPanel
+	 */
+	private JPanel mainPanel;
 
 	/**
 	 * Constructor initialazing components.
@@ -66,7 +63,7 @@ public class MainJFrame extends JFrame
 	 */
 	private void initMainPanel()
 	{
-		JPanel mainPanel = new JPanel(new GridBagLayout());
+		mainPanel = new JPanel(new GridBagLayout());
 		pane = mainPanel;
 		add(mainPanel, BorderLayout.NORTH);
 		c = new GridBagConstraints();
@@ -166,7 +163,7 @@ public class MainJFrame extends JFrame
 					hideFrame();
 				}
 			});
-				
+
 			c.gridx = 9;
 			c.gridy = i++;
 			c.gridwidth = 3;
@@ -217,8 +214,9 @@ public class MainJFrame extends JFrame
 		initTop();
 		initCenter();
 		initBottom();
+		initAdmin();
 
-		setSize(WINDOW_W, WINDOW_H);
+		setSize(Bartender.WINDOW_W, Bartender.WINDOW_H);
 		setTitle("Automatic Bartender");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -242,5 +240,28 @@ public class MainJFrame extends JFrame
 	public void hideFrame()
 	{
 		setVisible(false);
+	}
+
+	/**
+	 * Initializes admin interface for editing products names and prices.
+	 */
+	public void initAdmin()
+	{
+		ActionListener actionListener = new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent actionEvent)
+			{
+				AdminJFrame adminFrame = new AdminJFrame();
+				adminFrame.setVisible(true);
+				hideFrame();
+			}
+		};
+		
+		KeyStroke keystroke = KeyStroke.getKeyStroke(KeyEvent.VK_A, 0, false);
+		mainPanel.registerKeyboardAction(actionListener, keystroke, JComponent.WHEN_FOCUSED);
+		JButton btn = new JButton();
+		btn.registerKeyboardAction(null, null, ICONIFIED);
+
 	}
 }
