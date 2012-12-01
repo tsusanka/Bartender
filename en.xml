@@ -4,5 +4,6 @@
 	<sentence what="pay">Pay</sentence>
 	<sentence what="waitingForPayment">Your payment is processing...</sentence>
 	<sentence what="done">Your order is being served. Thank you.</sentence>
-	<sentence what="recap">You ordered:</sentence>
+	<sentence what="recap">Summary:</sentence>
+	<sentence what="admin">Product administration:</sentence>
 </language>

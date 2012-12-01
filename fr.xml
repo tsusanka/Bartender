@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<language code="en">
+	<sentence what="choose">Veuillez choisir votre boisson:</sentence>
+	<sentence what="pay">Payer</sentence>
+	<sentence what="waitingForPayment">Votre paiement est en attente...</sentence>
+	<sentence what="done">Votre commande est en preparation. Merci.</sentence>
+	<sentence what="recap">Resume:</sentence>
+	<sentence what="admin">Administration:</sentence>
+</language>

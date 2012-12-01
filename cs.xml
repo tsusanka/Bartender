@@ -5,4 +5,5 @@
 	<sentence what="waitingForPayment">Zpracováváme Vaši platbu...</sentence>
 	<sentence what="done">Vaše objednávka se připravuje. Děkujeme.</sentence>
 	<sentence what="recap">Objednali jste si:</sentence>
+	<sentence what="admin">Administrace produktů:</sentence>
 </language>

@@ -181,7 +181,7 @@ public class MainJFrame extends JFrame
 	{
 		ArrayList<Product> x = new ArrayList<Product>();
 		x.add(new Product("Vodka", 20));
-		x.add(new Product("Captaing Morgane", 20));
+		x.add(new Product("Captain Morgane", 20));
 		x.add(new Product("Sissy mix", 20));
 		x.add(new Product("Whiskey", 20));
 		x.add(new Product("Becherovka", 20));
