@@ -262,6 +262,5 @@ public class MainJFrame extends JFrame
 		mainPanel.registerKeyboardAction(actionListener, keystroke, JComponent.WHEN_FOCUSED);
 		JButton btn = new JButton();
 		btn.registerKeyboardAction(null, null, ICONIFIED);
-
 	}
 }
