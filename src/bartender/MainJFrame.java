@@ -179,15 +179,7 @@ public class MainJFrame extends JFrame
 	 */
 	private void initProductsBox()
 	{
-		ArrayList<Product> x = new ArrayList<Product>();
-		x.add(new Product("Vodka", 20));
-		x.add(new Product("Captain Morgane", 20));
-		x.add(new Product("Sissy mix", 20));
-		x.add(new Product("Whiskey", 20));
-		x.add(new Product("Becherovka", 20));
-
-		products = new Products(x);
-		//products = ProductsAccess.read();
+		products = ProductsAccess.read();
 		int i = 1;
 		for (Product product : products.getAll()) {
 			JLabel label = new JLabel(product.getName());
@@ -252,7 +244,7 @@ public class MainJFrame extends JFrame
 
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				AdminJFrame adminFrame = new AdminJFrame();
+				AdminJFrame adminFrame = new AdminJFrame(products);
 				adminFrame.setVisible(true);
 				hideFrame();
 			}

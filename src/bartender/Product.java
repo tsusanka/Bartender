@@ -98,4 +98,16 @@ public class Product implements java.io.Serializable
 	{
 		return spinner;
 	}
+
+	/**
+	 * Sets name.
+	 * 
+	 * @param name 
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	
 }
