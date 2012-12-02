@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicBorders;
 
@@ -95,34 +94,7 @@ public class MainJFrame extends JFrame
 		payButton = new JButton(currentLang.getSentence("pay"), coinsIcon);
 		payButton.setPreferredSize(new Dimension(150, 50));
 		payButton.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
-		payButton.addActionListener(new ActionListener() //adding action listener to show paying dialog
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent ae)
-			{
-				products.setAmountsOrdered();
-				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
-				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
-				Timer timer = new Timer(PAYMENT_WAITING_TIME, new ActionListener() //waiting three seconds for finishin payment
-				{
-
-					@Override
-					public void actionPerformed(ActionEvent ae)
-					{
-						dialog.setVisible(false); //hiding the dialog after three seconds pass
-					}
-				});
-				timer.setRepeats(false);
-				timer.start();
-				dialog.setVisible(true);
-
-				// after three seconds pass show next dialog
-				DoneJFrame pf = new DoneJFrame(currentLang, products);
-				hideFrame();
-				pf.showFrame();
-			}
-		});
+		payButton.addActionListener(getPayActionListener(false));
 
 		c.gridx = 9;
 		c.gridy = 5;
@@ -187,16 +159,86 @@ public class MainJFrame extends JFrame
 			c.gridy = i++;
 			c.insets = new Insets(10, 10, 10, 10);
 			pane.add(label, c);
-			c.gridx = 5;
+			c.gridx = 4;
 			c.insets = new Insets(0, 0, 0, 0);
 			SpinnerModel modeltau = new SpinnerNumberModel(0, 0, 99, 1);
 			JSpinner spinner = new JSpinner(modeltau);
 			spinner.setPreferredSize(new Dimension(40, 40));
 			pane.add(spinner, c);
+			c.gridx = 8;
+			c.insets = new Insets(10, 10, 10, 10);
+			JButton btn = new JButton();
+			
+			btn.addActionListener(getPayActionListenerForGame());
+			
+			btn.setText("A"); //TODO: add image ?
+			btn.setPreferredSize(new Dimension(25, 25));
+			pane.add(btn, c);
 			product.setSpinner(spinner);
 		}
 	}
+	
+	/**
+	 * Returns action listener for game buttons.
+	 * @return ActionListener to be attached
+	 */
+	private ActionListener getPayActionListenerForGame()
+	{
+		return getPayActionListener(true);
+	}
+	
+	/**
+	 * Returns action listener for pay button.
+	 * @return ActionListener to be attached
+	 */
+	private ActionListener getPayActionListener() {
+		return getPayActionListener(false);
+	}
 
+	/**
+	 * Returns action listener to assign to specific button. 
+	 * @param game if true, the game is paid, that means no setting amount required
+	 * @return ActionListener to be attached
+	 */
+	private ActionListener getPayActionListener(final boolean game)
+	{
+		return new ActionListener() //adding action listener to show paying dialog
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent ae)
+			{
+				if (!game)
+					products.setAmountsOrdered();
+				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
+				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
+				Timer timer = new Timer(PAYMENT_WAITING_TIME, new ActionListener() //waiting three seconds for finishin payment
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent ae)
+					{
+						dialog.setVisible(false); //hiding the dialog after three seconds pass
+					}
+				});
+				timer.setRepeats(false);
+				timer.start();
+				dialog.setVisible(true);
+
+				// after three seconds pass show next dialog
+				if (game) {
+					GameJFrame pf = new GameJFrame(currentLang);
+					hideFrame();
+					pf.showFrame();
+				} else {
+					DoneJFrame pf = new DoneJFrame(currentLang, products); 
+					hideFrame();
+					pf.showFrame();
+				}
+			}
+		};
+	}
+	
 	/**
 	 * Inicialization of components.
 	 */

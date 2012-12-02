@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <language code="en">
-	<sentence what="choose">Please choose a drink:</sentence>
+	<sentence what="choose">Oi mate, choose a drink:</sentence>
 	<sentence what="pay">Pay</sentence>
 	<sentence what="waitingForPayment">Your payment is processing...</sentence>
-	<sentence what="done">Your order is being served. Thank you.</sentence>
-	<sentence what="recap">Summary:</sentence>
+	<sentence what="done">We have it, here you go. Thanks man, good work.</sentence>
+	<sentence what="recap">You ordered:</sentence>
 	<sentence what="admin">Product administration:</sentence>
+	<sentence what="passwd">Please insert password:</sentence>
+	<sentence what="wrongPasswd">Wrong password, please choose again.</sentence>
+	<sentence what="save">Save</sentence>
+	<sentence what="letsplay">Twist it!</sentence>
 </language>
