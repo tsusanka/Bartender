@@ -94,7 +94,7 @@ public class MainJFrame extends JFrame
 		payButton = new JButton(currentLang.getSentence("pay"), coinsIcon);
 		payButton.setPreferredSize(new Dimension(150, 50));
 		payButton.setBorder(new BasicBorders.ButtonBorder(Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray));
-		payButton.addActionListener(getPayActionListener(false));
+		payButton.addActionListener(getPayActionListener());
 
 		c.gridx = 9;
 		c.gridy = 5;
@@ -169,7 +169,7 @@ public class MainJFrame extends JFrame
 			c.insets = new Insets(10, 10, 10, 10);
 			JButton btn = new JButton();
 			
-			btn.addActionListener(getPayActionListenerForGame());
+			btn.addActionListener(getPayActionListenerForGame(product));
 			
 			btn.setText("A"); //TODO: add image ?
 			btn.setPreferredSize(new Dimension(25, 25));
@@ -180,11 +180,13 @@ public class MainJFrame extends JFrame
 	
 	/**
 	 * Returns action listener for game buttons.
+	 * 
+	 * @param Product product to be gambled on
 	 * @return ActionListener to be attached
 	 */
-	private ActionListener getPayActionListenerForGame()
+	private ActionListener getPayActionListenerForGame(Product product)
 	{
-		return getPayActionListener(true);
+		return getPayActionListener(product);
 	}
 	
 	/**
@@ -192,7 +194,7 @@ public class MainJFrame extends JFrame
 	 * @return ActionListener to be attached
 	 */
 	private ActionListener getPayActionListener() {
-		return getPayActionListener(false);
+		return getPayActionListener(null);
 	}
 
 	/**
@@ -200,7 +202,7 @@ public class MainJFrame extends JFrame
 	 * @param game if true, the game is paid, that means no setting amount required
 	 * @return ActionListener to be attached
 	 */
-	private ActionListener getPayActionListener(final boolean game)
+	private ActionListener getPayActionListener(final Product gameProduct)
 	{
 		return new ActionListener() //adding action listener to show paying dialog
 		{
@@ -208,7 +210,7 @@ public class MainJFrame extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent ae)
 			{
-				if (!game)
+				if (gameProduct == null) //meaning we are not playing game
 					products.setAmountsOrdered();
 				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
 				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
@@ -226,12 +228,12 @@ public class MainJFrame extends JFrame
 				dialog.setVisible(true);
 
 				// after three seconds pass show next dialog
-				if (game) {
-					GameJFrame pf = new GameJFrame(currentLang);
+				if (gameProduct == null) {
+					DoneJFrame pf = new DoneJFrame(currentLang, products); 
 					hideFrame();
 					pf.showFrame();
 				} else {
-					DoneJFrame pf = new DoneJFrame(currentLang, products); 
+					GameJFrame pf = new GameJFrame(currentLang, gameProduct);
 					hideFrame();
 					pf.showFrame();
 				}

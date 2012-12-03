@@ -9,5 +9,6 @@
 	<sentence what="passwd">Please insert password:</sentence>
 	<sentence what="wrongPasswd">Wrong password, please choose again.</sentence>
 	<sentence what="save">Save</sentence>
-	<sentence what="letsplay">Twist it!</sentence>
+	<sentence what="letsplayabout">Let's see if you get some of our </sentence>
+	<sentence what="twist">Twist it!</sentence>
 </language>
