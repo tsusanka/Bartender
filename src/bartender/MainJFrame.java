@@ -173,6 +173,12 @@ public class MainJFrame extends JFrame
 			pane.add(gameButton, c);
 			product.setSpinner(spinner);
 		}
+		ImageIcon redBannerIcon = new ImageIcon(getClass().getResource("imgs/redbanner.png"));
+		JLabel gameBanner = new JLabel(redBannerIcon);
+		c.gridy = 10;
+		c.gridx = 0;
+		c.gridwidth = 10;
+		pane.add(gameBanner, c);
 	}
 	
 	/**
