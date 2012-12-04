@@ -14,11 +14,11 @@ public class Bartender
 	/**
 	 * @var int Window width
 	 */
-	public final static int WINDOW_W = 500;
+	public final static int WINDOW_W = 550;
 	/**
 	 * @var int Window height
 	 */
-	public final static int WINDOW_H = 300;
+	public final static int WINDOW_H = 350;
 	/**
 	 * @var String default language
 	 */

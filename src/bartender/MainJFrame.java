@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicBorders;
 
 /**
@@ -165,17 +166,32 @@ public class MainJFrame extends JFrame
 			JSpinner spinner = new JSpinner(modeltau);
 			spinner.setPreferredSize(new Dimension(40, 40));
 			pane.add(spinner, c);
+			
 			c.gridx = 8;
 			c.insets = new Insets(10, 10, 10, 10);
-			JButton btn = new JButton();
-			
-			btn.addActionListener(getPayActionListenerForGame(product));
-			
-			btn.setText("A"); //TODO: add image ?
-			btn.setPreferredSize(new Dimension(25, 25));
-			pane.add(btn, c);
+			JButton gameButton = getGameButton(product);
+			pane.add(gameButton, c);
 			product.setSpinner(spinner);
 		}
+	}
+	
+	/**
+	 * Returns game button with icon and associated product.
+	 * @param product
+	 * @return 
+	 */
+	private JButton getGameButton(Product product)
+	{
+		ImageIcon buttonIcon = new ImageIcon(getClass().getResource("imgs/redbutton.png"));
+		JButton btn = new JButton("", buttonIcon); 
+		btn.setOpaque(false);
+		btn.setContentAreaFilled(false);
+		btn.setBorderPainted(false);
+		
+		btn.addActionListener(getPayActionListenerForGame(product));
+		btn.setPreferredSize(new Dimension(30, 30));
+		
+		return btn;
 	}
 	
 	/**
