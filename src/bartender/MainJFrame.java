@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicBorders;
 
 /**
@@ -23,7 +22,7 @@ public class MainJFrame extends JFrame
 	/**
 	 * @var String[] active languages that can be selected
 	 */
-	private static final String[] activeLanguages = {"en", "cs", "es"};
+	private static final String[] activeLanguages = {"en", "cs", "es", "fr", "lv", "dk"};
 	/**
 	 * @var JButton save button
 	 */
@@ -119,12 +118,14 @@ public class MainJFrame extends JFrame
 	 */
 	private void initLanguages()
 	{
-		int i = 1;
+		int y = 1;
+		int x = 9;
 		for (final String lang : activeLanguages) {
 			ImageIcon icon = new ImageIcon(getClass().getResource("imgs/" + lang + ".jpg"));
-			JButton btn = new JButton("", icon);
-			btn.setPreferredSize(new Dimension(60, 26));
-			btn.setBorder(BorderFactory.createEmptyBorder());
+			JButton btn = new JButton(icon);
+			btn.setPreferredSize(new Dimension(50, 26));
+			btn.setOpaque(false);
+			btn.setContentAreaFilled(false);
 			btn.addActionListener(new ActionListener() //adding action listener to show paying dialog
 			{
 
@@ -136,11 +137,14 @@ public class MainJFrame extends JFrame
 					hideFrame();
 				}
 			});
-
-			c.gridx = 9;
-			c.gridy = i++;
+		
+			if (y == 4) {
+				y = 1;
+				x += 2;
+			}
+			c.gridx = x;
+			c.gridy = y++;
 			c.gridwidth = 3;
-			c.insets = new Insets(10, 10, 10, 10);
 
 			pane.add(btn, c);
 		}
