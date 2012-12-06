@@ -28,7 +28,7 @@ public class Bartender
 	 * Main static function.
 	 */
 	public static void main(String[] args)
-	{
+	{  
 		System.out.println("Program started.");
 		Language lang = new Language(DEFAULT_LANG);
 		MainJFrame window = new MainJFrame(lang);

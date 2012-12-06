@@ -66,26 +66,6 @@ public class DoneJFrame extends JFrame
 	}
 
 	/**
-	 * Shows the frame.
-	 *
-	 * Shortcut for setVisible(true).
-	 */
-	public void showFrame()
-	{
-		setVisible(true);
-	}
-
-	/**
-	 * Hides the frame.
-	 *
-	 * Shortcut for setVisible(false).
-	 */
-	public void hideFrame()
-	{
-		setVisible(false);
-	}
-
-	/**
 	 * Initializes product labels for summary.
 	 */
 	private void initProductSummary()

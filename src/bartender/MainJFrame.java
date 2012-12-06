@@ -1,5 +1,7 @@
 package bartender;
 
+import chrriis.dj.nativeswing.NativeComponentWrapper;
+import chrriis.dj.nativeswing.NativeSwing;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -257,11 +259,11 @@ public class MainJFrame extends JFrame
 				if (gameProduct == null) {
 					DoneJFrame pf = new DoneJFrame(currentLang, products); 
 					hideFrame();
-					pf.showFrame();
+					pf.setVisible(true);
 				} else {
 					GameJFrame pf = new GameJFrame(currentLang, gameProduct);
 					hideFrame();
-					pf.showFrame();
+					pf.setVisible(true);
 				}
 			}
 		};
@@ -273,6 +275,9 @@ public class MainJFrame extends JFrame
 	private void initComponents()
 	{
 		initMainPanel();
+		
+		NativeSwing.initialize();
+		
 		initTop();
 		initCenter();
 		initBottom();
