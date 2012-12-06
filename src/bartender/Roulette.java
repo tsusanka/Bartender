@@ -1,10 +1,3 @@
-/*
- * Christopher Deckers (chrriis@nextencia.net)
- * http://www.nextencia.net
- *
- * See the file "readme.txt" for information on usage and redistribution of
- * this file, and for a DISCLAIMER OF ALL WARRANTIES.
- */
 package bartender;
 
 import chrriis.common.UIUtils;
@@ -18,22 +11,27 @@ import javax.swing.SwingUtilities;
 
 /**
  * This class represents the roulette game.
+ * Mainly it's animation.
+ *
+ * @author Tomas Susanka
  */
 public class Roulette extends JPanel
 {
+
 	/**
 	 * @var int width of the roulette window
 	 */
-	private final int WIDTH = 400;
+	private final int ROULETTE_WIDTH = 400;
 	/**
 	 * @var int height of the roulette window
 	 */
-	private final int HEIGHT = 300;
-	
+	private final int ROULETTE_HEIGHT = 300;
+
 	/**
 	 * Main constructor. Initializes the roulette window and starts to spin.
-	 * 
-	 * @param int The outcome of the game (result), depending on that the animation is chosen.
+	 *
+	 * @param int The outcome of the game (result), depending on that the
+	 * animation is chosen.
 	 */
 	public Roulette(int num)
 	{
@@ -44,16 +42,17 @@ public class Roulette extends JPanel
 
 		UIUtils.setPreferredLookAndFeel();
 		NativeInterface.open();
-		
+
 		JLabel resultLabel = new JLabel("↓↓↓↓↓");
 		resultLabel.setHorizontalAlignment(SwingUtilities.CENTER);
-		
+
 		JFrame frame = new JFrame("Automatic Bartender");
 		frame.getContentPane().add(resultLabel, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(flashPlayer, BorderLayout.CENTER);
-		frame.setSize(WIDTH, HEIGHT);
-		frame.setLocationByPlatform(true);
+		frame.setSize(ROULETTE_WIDTH, ROULETTE_HEIGHT);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
 	}
 }

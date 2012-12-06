@@ -1,34 +1,19 @@
 package bartender;
 
-import chrriis.dj.nativeswing.NativeComponentWrapper;
-import chrriis.dj.nativeswing.NativeSwing;
-import java.awt.*;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
- *
+ * Represents the gamble on specific product.
+ * 
  * @author Tomas Susanka
  */
-public class GameJFrame extends JFrame
+public final class GameJFrame extends OwnJFrame
 {
-
-	/**
-	 * @var Language current language for accesing words
-	 */
-	private Language currentLang;
-	/**
-	 * @var GridBagContraints c
-	 */
-	private GridBagConstraints c;
-	/**
-	 * @var Container pane
-	 */
-	private Container pane;
+	
 	/**
 	 * @var Product productGambled
 	 */
@@ -53,34 +38,15 @@ public class GameJFrame extends JFrame
 	 */
 	public GameJFrame(Language currentLang, Product productGambled)
 	{
-		this.currentLang = currentLang;
+		super(currentLang);
 		this.productGambled = productGambled;
 		
-		decideResult();
-		initFrame();
 		initComponents();
+		decideResult();
 	}
 
-	/**
-	 * Sets the frame window, height, title etc.
-	 */
-	private void initFrame()
-	{
-		JPanel mainPanel = new JPanel(new GridBagLayout());
-		pane = mainPanel;
-		add(mainPanel, BorderLayout.NORTH);
-		c = new GridBagConstraints();
-
-		setSize(Bartender.WINDOW_W, Bartender.WINDOW_H);
-		setTitle("Automatic Bartender");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-	}
-
-	/**
-	 * Initializes components.
-	 */
-	private void initComponents()
+	@Override
+	protected void initComponents()
 	{
 		JLabel label = new JLabel(currentLang.getSentence("letsplayabout") +
 		productGambled.getName() + ":");

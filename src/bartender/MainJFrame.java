@@ -1,8 +1,10 @@
 package bartender;
 
-import chrriis.dj.nativeswing.NativeComponentWrapper;
 import chrriis.dj.nativeswing.NativeSwing;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,7 +16,7 @@ import javax.swing.plaf.basic.BasicBorders;
  *
  * @author Tomas Susanka
  */
-public class MainJFrame extends JFrame
+public final class MainJFrame extends OwnJFrame
 {
 
 	/**
@@ -30,44 +32,29 @@ public class MainJFrame extends JFrame
 	 */
 	private JButton payButton;
 	/**
-	 * @var Language language for accesing words
-	 */
-	private Language currentLang;
-	/**
 	 * @var ProductsAccess products offered
 	 */
 	private Products products;
-	/**
-	 * @var Container pane
-	 */
-	private Container pane;
-	/**
-	 * @var GridBagContraints c
-	 */
-	private GridBagConstraints c;
-	/**
-	 * @var JPanel mainPanel
-	 */
-	private JPanel mainPanel;
 
 	/**
 	 * Constructor initialazing components.
 	 */
 	public MainJFrame(Language language)
 	{
-		currentLang = language;
+		super(language);
+
 		initComponents();
 	}
 
-	/**
-	 * Inicialization of top screen.
-	 */
-	private void initMainPanel()
+	@Override
+	protected void initComponents()
 	{
-		mainPanel = new JPanel(new GridBagLayout());
-		pane = mainPanel;
-		add(mainPanel, BorderLayout.NORTH);
-		c = new GridBagConstraints();
+		NativeSwing.initialize();
+
+		initTop();
+		initCenter();
+		initBottom();
+		initAdmin();
 	}
 
 	/**
@@ -139,7 +126,7 @@ public class MainJFrame extends JFrame
 					hideFrame();
 				}
 			});
-		
+
 			if (y == 4) {
 				y = 1;
 				x += 2;
@@ -172,7 +159,7 @@ public class MainJFrame extends JFrame
 			JSpinner spinner = new JSpinner(modeltau);
 			spinner.setPreferredSize(new Dimension(40, 40));
 			pane.add(spinner, c);
-			
+
 			c.gridx = 8;
 			c.insets = new Insets(10, 10, 10, 10);
 			JButton gameButton = getGameButton(product);
@@ -186,29 +173,30 @@ public class MainJFrame extends JFrame
 		c.gridwidth = 10;
 		pane.add(gameBanner, c);
 	}
-	
+
 	/**
 	 * Returns game button with icon and associated product.
+	 *
 	 * @param product
-	 * @return 
+	 * @return
 	 */
 	private JButton getGameButton(Product product)
 	{
 		ImageIcon buttonIcon = new ImageIcon(getClass().getResource("imgs/redbutton.png"));
-		JButton btn = new JButton("", buttonIcon); 
+		JButton btn = new JButton("", buttonIcon);
 		btn.setOpaque(false);
 		btn.setContentAreaFilled(false);
 		btn.setBorderPainted(false);
-		
+
 		btn.addActionListener(getPayActionListenerForGame(product));
 		btn.setPreferredSize(new Dimension(30, 30));
-		
+
 		return btn;
 	}
-	
+
 	/**
 	 * Returns action listener for game buttons.
-	 * 
+	 *
 	 * @param Product product to be gambled on
 	 * @return ActionListener to be attached
 	 */
@@ -216,18 +204,22 @@ public class MainJFrame extends JFrame
 	{
 		return getPayActionListener(product);
 	}
-	
+
 	/**
 	 * Returns action listener for pay button.
+	 *
 	 * @return ActionListener to be attached
 	 */
-	private ActionListener getPayActionListener() {
+	private ActionListener getPayActionListener()
+	{
 		return getPayActionListener(null);
 	}
 
 	/**
-	 * Returns action listener to assign to specific button. 
-	 * @param game if true, the game is paid, that means no setting amount required
+	 * Returns action listener to assign to specific button.
+	 *
+	 * @param game if true, the game is paid, that means no setting amount
+	 * required
 	 * @return ActionListener to be attached
 	 */
 	private ActionListener getPayActionListener(final Product gameProduct)
@@ -239,7 +231,9 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent ae)
 			{
 				if (gameProduct == null) //meaning we are not playing game
+				{
 					products.setAmountsOrdered();
+				}
 				JOptionPane optionPane = new JOptionPane(currentLang.getSentence("waitingForPayment"));
 				final JDialog dialog = optionPane.createDialog(pane, currentLang.getSentence("waitingForPayment"));
 				Timer timer = new Timer(PAYMENT_WAITING_TIME, new ActionListener() //waiting three seconds for finishin payment
@@ -257,7 +251,7 @@ public class MainJFrame extends JFrame
 
 				// after three seconds pass show next dialog
 				if (gameProduct == null) {
-					DoneJFrame pf = new DoneJFrame(currentLang, products); 
+					DoneJFrame pf = new DoneJFrame(currentLang, products);
 					hideFrame();
 					pf.setVisible(true);
 				} else {
@@ -267,46 +261,6 @@ public class MainJFrame extends JFrame
 				}
 			}
 		};
-	}
-	
-	/**
-	 * Inicialization of components.
-	 */
-	private void initComponents()
-	{
-		initMainPanel();
-		
-		NativeSwing.initialize();
-		
-		initTop();
-		initCenter();
-		initBottom();
-		initAdmin();
-
-		setSize(Bartender.WINDOW_W, Bartender.WINDOW_H);
-		setTitle("Automatic Bartender");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-	}
-
-	/**
-	 * Shows the frame.
-	 *
-	 * Shortcut for setVisible(true).
-	 */
-	public void showFrame()
-	{
-		setVisible(true);
-	}
-
-	/**
-	 * Hides the frame.
-	 *
-	 * Shortcut for setVisible(false).
-	 */
-	public void hideFrame()
-	{
-		setVisible(false);
 	}
 
 	/**
@@ -324,7 +278,7 @@ public class MainJFrame extends JFrame
 				hideFrame();
 			}
 		};
-		
+
 		KeyStroke keystroke = KeyStroke.getKeyStroke(KeyEvent.VK_A, 0, false);
 		mainPanel.registerKeyboardAction(actionListener, keystroke, JComponent.WHEN_FOCUSED);
 		JButton btn = new JButton();

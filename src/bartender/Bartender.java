@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package bartender;
 
 /**
@@ -10,7 +6,8 @@ package bartender;
  * @author Tomas Susanka
  */
 public class Bartender
-{	
+{
+
 	/**
 	 * @var int Window width
 	 */
@@ -23,12 +20,16 @@ public class Bartender
 	 * @var String default language
 	 */
 	public static final String DEFAULT_LANG = "en";
+	/**
+	 * @var String title of all program windows
+	 */
+	public static final String WINDOW_TITLE = "Automatic Bartender";
 
 	/**
 	 * Main static function.
 	 */
 	public static void main(String[] args)
-	{  
+	{
 		System.out.println("Program started.");
 		Language lang = new Language(DEFAULT_LANG);
 		MainJFrame window = new MainJFrame(lang);
