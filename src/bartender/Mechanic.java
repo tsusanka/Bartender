@@ -8,9 +8,6 @@ package bartender;
  */
 public class Mechanic
 {
-	
-	//TODO: to implement ALL methods
-	
 	/**
 	 * 
 	 */

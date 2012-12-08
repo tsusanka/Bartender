@@ -26,6 +26,10 @@ public class Roulette extends JPanel
 	 * @var int height of the roulette window
 	 */
 	private final int ROULETTE_HEIGHT = 300;
+	/**
+	 * @var JFrame roulette's frame
+	 */
+	private JFrame frame;
 
 	/**
 	 * Main constructor. Initializes the roulette window and starts to spin.
@@ -46,13 +50,22 @@ public class Roulette extends JPanel
 		JLabel resultLabel = new JLabel("↓↓↓↓↓");
 		resultLabel.setHorizontalAlignment(SwingUtilities.CENTER);
 
-		JFrame frame = new JFrame("Automatic Bartender");
+		frame = new JFrame(Bartender.WINDOW_TITLE);
 		frame.getContentPane().add(resultLabel, BorderLayout.NORTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(flashPlayer, BorderLayout.CENTER);
 		frame.setSize(ROULETTE_WIDTH, ROULETTE_HEIGHT);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
 	}
+	
+	/**
+	 * Hides the main frame.
+	 */
+	public void hideFrame()
+	{
+		frame.setVisible(false);
+	}
+	
+	
 }

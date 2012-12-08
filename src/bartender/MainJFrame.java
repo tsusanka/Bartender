@@ -42,7 +42,7 @@ public final class MainJFrame extends OwnJFrame
 	public MainJFrame(Language language)
 	{
 		super(language);
-
+		
 		initComponents();
 	}
 
@@ -166,12 +166,6 @@ public final class MainJFrame extends OwnJFrame
 			pane.add(gameButton, c);
 			product.setSpinner(spinner);
 		}
-		ImageIcon redBannerIcon = new ImageIcon(getClass().getResource("imgs/redbanner.png"));
-		JLabel gameBanner = new JLabel(redBannerIcon);
-		c.gridy = 10;
-		c.gridx = 0;
-		c.gridwidth = 10;
-		pane.add(gameBanner, c);
 	}
 
 	/**

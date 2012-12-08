@@ -15,7 +15,7 @@ public class Bartender
 	/**
 	 * @var int Window height
 	 */
-	public final static int WINDOW_H = 350;
+	public final static int WINDOW_H = 330;
 	/**
 	 * @var String default language
 	 */

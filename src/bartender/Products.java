@@ -26,11 +26,14 @@ public class Products implements java.io.Serializable
 	}
 
 	/**
-	 * Empty constructor.
+	 * Constructor from one item.
 	 *
 	 */
-	public Products()
+	public Products(Product a)
 	{
+		ArrayList<Product> list = new ArrayList<Product>();
+		list.add(a);
+		arr = list;
 	}
 
 	/**
