@@ -108,6 +108,17 @@ public class Product implements java.io.Serializable
 	{
 		this.name = name;
 	}
+
+	/**
+	 * Sets price of this product.
+	 * 
+	 * @param price 
+	 */
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
+	
 	
 	
 }

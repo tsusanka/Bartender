@@ -86,20 +86,30 @@ public final class AdminJFrame extends OwnJFrame
 	}
 
 	/**
-	 * Creates inputs for changing the names of products
+	 * Creates inputs for changing the products
 	 */
 	private void initProductChange()
 	{
 		final ArrayList<Product> p = products.getAll();
-		final ArrayList<JTextField> fields = new ArrayList<JTextField>();
+		final ArrayList<JTextField> nameFields = new ArrayList<JTextField>();
+		final ArrayList<JTextField> priceFields = new ArrayList<JTextField>();
 		for (int i = 0; i < 5; i++) {
+			c.gridx = 1;
+			c.gridwidth = 1;
 			c.gridy = 30 * (i + 1);
-			JTextField field = new JTextField();
-			fields.add(field);
-			field.setBounds(20, 20, 20, 20);
-			field.setPreferredSize(new Dimension(400, 20));
-			field.setText(p.get(i).getName());
-			pane.add(field, c);
+			JTextField name = new JTextField();
+			nameFields.add(name);
+			name.setBounds(20, 20, 20, 20);
+			name.setPreferredSize(new Dimension(200, 20));
+			name.setText(p.get(i).getName());
+			pane.add(name, c);
+			c.gridx = 2;
+			JTextField price = new JTextField();
+			priceFields.add(price);
+			price.setBounds(20, 20, 20, 20);
+			price.setPreferredSize(new Dimension(200, 20));
+			price.setText(Double.toString(p.get(i).getPrice()));
+			pane.add(price, c);
 		}
 
 		JButton savebtn = new JButton();
@@ -110,7 +120,8 @@ public final class AdminJFrame extends OwnJFrame
 			public void actionPerformed(ActionEvent ae)
 			{
 				for (int i = 0; i < 5; i++) {
-					p.get(i).setName(fields.get(i).getText());
+					p.get(i).setName(nameFields.get(i).getText());
+					p.get(i).setPrice(new Double(priceFields.get(i).getText()));
 				}
 				ProductsAccess.write(new Products(p));
 				setVisible(false);

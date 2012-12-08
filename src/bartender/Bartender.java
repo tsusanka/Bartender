@@ -35,4 +35,5 @@ public class Bartender
 		MainJFrame window = new MainJFrame(lang);
 		window.showFrame();
 	}
+	
 }
