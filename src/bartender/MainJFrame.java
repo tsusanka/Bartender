@@ -148,7 +148,7 @@ public final class MainJFrame extends OwnJFrame
 		products = ProductsAccess.read();
 		int i = 1;
 		for (Product product : products.getAll()) {
-			JLabel label = new JLabel(product.getName());
+			JLabel label = new JLabel(product.getName() + ":   " + product.getPrice());
 			c.gridx = 0;
 			c.gridy = i++;
 			c.insets = new Insets(10, 10, 10, 10);
