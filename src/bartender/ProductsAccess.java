@@ -5,6 +5,8 @@ import java.io.*;
 /**
  * Provides access to read and write product's names.
  *
+ * Simple all-static class providing access to the product data. Products data are serialized (Products class) and saved in a file.
+ * 
  * @author Tomáš Sušánka
  */
 public class ProductsAccess

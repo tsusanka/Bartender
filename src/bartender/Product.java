@@ -3,8 +3,10 @@ package bartender;
 import javax.swing.JSpinner;
 
 /**
- * Reprezenting product.
+ * Represents single product, mainly his price and name.
  *
+ * This class presents one particular product. Besides price and name, each product has its own Spinner, which is placed next to its name and contains the amount ordered by customers. 
+ * 
  * @author Tomas Susanka
  */
 public class Product implements java.io.Serializable

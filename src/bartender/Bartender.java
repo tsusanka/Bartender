@@ -1,7 +1,9 @@
 package bartender;
 
 /**
- * Main class creating instances
+ * Main class creating instances.
+ * 
+ * This is the main class with main(String[] args) function. It creates the main window and shows it.
  *
  * @author Tomas Susanka
  */

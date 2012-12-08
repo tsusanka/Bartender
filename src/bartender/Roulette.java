@@ -11,7 +11,8 @@ import javax.swing.SwingUtilities;
 
 /**
  * This class represents the roulette game.
- * Mainly it's animation.
+ * 
+ * This class is created, when the "Twist it" button is pressed. It opens the roulette flash animation.
  *
  * @author Tomas Susanka
  */

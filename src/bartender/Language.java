@@ -11,8 +11,7 @@ import org.w3c.dom.NodeList;
 /**
  * Class representing particular language.
  *
- * All sentences in the application are taken from this class, which reads in
- * specific file, based on the language, selected by customer.
+ * All sentences in the application are taken from this class, which reads in specific file, based on the language, selected by customer.
  *
  * @author Tomas Susanka
  */

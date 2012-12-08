@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 /**
  * The parent class for all frames.
  * 
- * Sets the width and height of a window, sets a title etc.
+ * Sets the width and height of a window, sets a title and creates instances further used in the descendants.
  * 
  * @author Tomas Susanka
  */

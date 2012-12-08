@@ -12,8 +12,10 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicBorders;
 
 /**
- * Main window containg all buttons, labels etc.
+ * Main window containing all buttons, labels etc.
  *
+ * This is the window, that is opened at the very beggining by Bartender default main method. It contains all the buttons, name and prices of products and many other components.
+ * 
  * @author Tomas Susanka
  */
 public final class MainJFrame extends OwnJFrame

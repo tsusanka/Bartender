@@ -4,6 +4,9 @@ package bartender;
 
 /**
  * Sends instructions to electronic system.
+ * 
+ * This class will be "connected" to the electronical device, which will send signals to the machine. It represents only a skeleton for future purposes.
+ * 
  * @author Tomáš Sušánka
  */
 public class Mechanic

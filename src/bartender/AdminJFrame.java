@@ -9,7 +9,10 @@ import java.util.Arrays;
 import javax.swing.*;
 
 /**
- *
+ * Admin window contains the administration of all products. 
+ * 
+ * This class represents the window containing administration of products. It asks the administrator for a password which is hardcoded in this class. After entering the password, the user is allowed to change the names and prices of all products. When the save button is pressed, the products are stored in a file.
+ * 
  * @author Tomas Susanka
  */
 public final class AdminJFrame extends OwnJFrame

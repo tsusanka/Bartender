@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 /**
  * Final frame showing summary of the order.
  * 
+ * This class represents the final window, that is displayed after the order is finished. It contains a simple summary of all products ordered and it informs the customer that his/hers order is being served.
+ * 
  * @author Tomas Susanka
  */
 public final class DoneJFrame extends OwnJFrame

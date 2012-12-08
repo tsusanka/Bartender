@@ -3,8 +3,8 @@ package bartender;
 import java.util.ArrayList;
 
 /**
- * This class represents products - collection of Product instances.
- *
+ * This class represents products, collection of Product instances.
+ * 
  * @author Tomáš Sušánka
  */
 public class Products implements java.io.Serializable

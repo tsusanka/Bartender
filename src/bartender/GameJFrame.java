@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * Represents the gamble on specific product.
+ * Frame containing information about the game and possibility to play.
  *
+ * This class represents the window that's opened, when the customer clicks on one of the red buttons. If so, a window is opened containing two buttons. One to spin the roulette and play for the drinks, the other one is to chicken out and just take normal order. 
+ * 
  * @author Tomas Susanka
  */
 public final class GameJFrame extends OwnJFrame
