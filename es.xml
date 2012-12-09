@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <language code="es">
-	<sentence what="choose">Elija su chupito:</sentence>
+	<sentence what="choose">Hola, elija su bebida:</sentence>
 	<sentence what="pay">Pagar</sentence>
 	<sentence what="waitingForPayment"> Espere un momento...</sentence>
-	<sentence what="done">Sus chupitos están en camino. Gracias.</sentence>
-	<sentence what="recap">Sus chupitos son:</sentence>
-	<sentence what="admin">Administración</sentence>
+	<sentence what="done"> Lo tenemos, aquí tiene. Gracias</sentence>
+	<sentence what="recap">Usted quiere:</sentence>
+	<sentence what="admin"> Administración:</sentence> 
+	<sentence what="passwd">Por favor inserte contraseña:</sentence>
+	<sentence what="wrongPasswd">Contraseña errónea, por favor introdúzcala de nnuevo.</sentence> 
+	<sentence what="save">Guardado</sentence> 
+	<sentence what="letsplayabout"> Veamos su elección </sentence>
+	<sentence what="twist">Gírelo!</sentence> 
+	<sentence what="noback">No he cambiado de opinión, solo dame 2x</sentence>
+	<sentence what="result1">Oooh, mala suerte, solo 1x, otra vez será.</sentence> 
+	<sentence what="result2">Bueno pagaste 2, así que 2x no está tan mal.</sentence> 
+	<sentence what="result3">  Uno más para ti, 3x!</sentence> 
+	<sentence what="result4">Wow, has tenido suerte, double: 4x!</sentence>
+	<sentence what="edit">Por favor, modifique los campos y pulse el botón Guardar.</sentence>
 </language>
+

@@ -34,9 +34,9 @@ public final class AdminJFrame extends OwnJFrame
 	/**
 	 * Creates instance of admin frame.
 	 */
-	public AdminJFrame(Products products)
+	public AdminJFrame(Products products, Language lang)
 	{
-		super(new Language(Bartender.DEFAULT_LANG));
+		super(lang);
 		this.products = products;
 
 		initComponents();
@@ -74,7 +74,7 @@ public final class AdminJFrame extends OwnJFrame
 				System.out.println(passwdField.getPassword());
 				if (Arrays.equals(passwdField.getPassword(), DEFAULT_PASSWD)) {
 					initProductChange();
-					mainLabel.setText("Please edit the fields and press the save button.");
+					mainLabel.setText(currentLang.getSentence("edit"));
 					passwdField.setVisible(false);
 				} else {
 					JOptionPane optionPane = new JOptionPane(currentLang.getSentence("wrongPasswd"));

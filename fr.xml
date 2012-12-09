@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<language code="en">
-	<sentence what="choose">Veuillez choisir votre boisson:</sentence>
+<language code="fr">
+	<sentence what="choose">Choisissez votre boisson:</sentence>
 	<sentence what="pay">Payer</sentence>
 	<sentence what="waitingForPayment">Votre paiement est en attente...</sentence>
 	<sentence what="done">Votre commande est en preparation. Merci.</sentence>
-	<sentence what="recap">Resume:</sentence>
+	<sentence what="recap">Résumé:</sentence>
 	<sentence what="admin">Administration:</sentence>
+	<sentence what="passwd">Veuillez rentrer votre mot de passe</sentence>
+	<sentence what="wrongPasswd">Mot de passe erroné, choisissez à nouveau</sentence>
+	<sentence what="edit">Veuillez modifier les champs et validez.</sentence>
+	<sentence what="save">Enregistrer</sentence>
+	<sentence what="letsplayabout">Voyons si tu peux avoir un peu de </sentence>
+	<sentence what="twist">Fais tourner!</sentence>
+	<sentence what="noback">Je change d'avis, donne moi juste 2x</sentence>
+	<sentence what="result1">Oooh, pas de chance, seulement 1x, peut être la prochaine fois.</sentence>
+	<sentence what="result2">Tu as payé pour 2, donc 2x n'est pas si mal.</sentence>
+	<sentence what="result3">Un de plus, ça fait 3x!</sentence>
+	<sentence what="result4">Waow, tu as de la chance, deux fois plus: 4x!</sentence>
 </language>

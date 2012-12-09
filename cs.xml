@@ -6,4 +6,15 @@
 	<sentence what="done">Vaše objednávka se připravuje. Děkujeme.</sentence>
 	<sentence what="recap">Objednali jste si:</sentence>
 	<sentence what="admin">Administrace produktů:</sentence>
+	<sentence what="passwd">Prosím vložte heslo:</sentence>
+	<sentence what="wrongPasswd">Špatné heslo, zkuste prosím znovu.</sentence>
+	<sentence what="edit">Upravte jednotlivá pole a klikněte na tlačítko pro uložení.</sentence>
+	<sentence what="save">Uložit</sentence>
+	<sentence what="letsplayabout">Tak se pojďme podívat, jestli vyhraješ panáka: </sentence>
+	<sentence what="twist">Roztoč to!</sentence>
+	<sentence what="noback">Ne, rozmyslel jsem si to, jen 2x.</sentence>
+	<sentence what="result1">Smůla, jen 1x, zkus to příště.</sentence>
+	<sentence what="result2">Mno, zaplatil jsi dva, dostaneš 2x.</sentence>
+	<sentence what="result3">Jeden je na nás, to jsou 3x!</sentence>
+	<sentence what="result4">Dnes, je tvůj den, dvojitá zábava: 4x!</sentence>
 </language>

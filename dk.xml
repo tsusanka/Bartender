@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<language code="en">
+<language code="dk">
 	<sentence what="choose">Oi mate, choose a drink:</sentence>
 	<sentence what="pay">Pay</sentence>
 	<sentence what="waitingForPayment">Your payment is processing...</sentence>
@@ -11,4 +11,9 @@
 	<sentence what="save">Save</sentence>
 	<sentence what="letsplayabout">Let's see if you get some of our </sentence>
 	<sentence what="twist">Twist it!</sentence>
+	<sentence what="noback">No I changed my mind, just gimme 2x</sentence>
+	<sentence what="result1">Oooh, bad luck, just 1x, maybe next time.</sentence>
+	<sentence what="result2">Well you paid for two, so 2x is not that bad.</sentence>
+	<sentence what="result3">One more for you, that's 3x!</sentence>
+	<sentence what="result4">Wow, you are lucky, double: 4x!</sentence>
 </language>

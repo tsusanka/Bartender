@@ -269,7 +269,7 @@ public final class MainJFrame extends OwnJFrame
 
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				AdminJFrame adminFrame = new AdminJFrame(products);
+				AdminJFrame adminFrame = new AdminJFrame(products, currentLang);
 				adminFrame.setVisible(true);
 				hideFrame();
 			}
