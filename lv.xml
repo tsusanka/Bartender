@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <language code="lv">
-	<sentence what="choose">Oi mate, choose a drink:</sentence>
-	<sentence what="pay">Pay</sentence>
-	<sentence what="waitingForPayment">Your payment is processing...</sentence>
-	<sentence what="done">We have it, here you go. Thanks man, good work.</sentence>
-	<sentence what="recap">You ordered:</sentence>
-	<sentence what="admin">Product administration:</sentence>
-	<sentence what="passwd">Please insert password:</sentence>
-	<sentence what="wrongPasswd">Wrong password, please choose again.</sentence>
-	<sentence what="save">Save</sentence>
-	<sentence what="letsplayabout">Let's see if you get some of our </sentence>
-	<sentence what="twist">Twist it!</sentence>
-	<sentence what="noback">No I changed my mind, just gimme 2x</sentence>
-	<sentence what="result1">Oooh, bad luck, just 1x, maybe next time.</sentence>
-	<sentence what="result2">Well you paid for two, so 2x is not that bad.</sentence>
-	<sentence what="result3">One more for you, that's 3x!</sentence>
-	<sentence what="result4">Wow, you are lucky, double: 4x!</sentence>
+	<sentence what="choose">Sveiki, izvçlies dzçrienu:</sentence>
+	<sentence what="pay">Maksât</sentence>
+	<sentence what="waitingForPayment">Notiek pasûtîjuma apstrâde...</sentence>
+	<sentence what="done"> Lûdzu jûsu dzçrieni. Paldies, nâciet vel.</sentence>
+	<sentence what="recap">Jûsu pasûtîjums:</sentence>
+	<sentence what="admin">Produktu administrçðana:</sentence>
+	<sentence what="passwd">Lûdzu ievadiet paroli:</sentence>
+	<sentence what="wrongPasswd">Nepareiza parole, lûdzu atkârtojiet.</sentence>
+	<sentence what="edit">Lūdzu aizpildiet laukus un spiediet saglabāt.</sentence>
+	<sentence what="save">Saglabât</sentence>
+	<sentence what="letsplayabout">Paskatîsimies vai vari dabût kâdu papildus no mums</sentence>
+	<sentence what="twist">Iegriest!</sentence>
+	<sentence what="noback">Nç, es pârdomâju, dodiet man 2x</sentence>
+	<sentence what="result1">Oooh, nepaveicâs, tikai 1x, varbût nâkamreiz.</sentence>
+	<sentence what="result2">Jûs samaksâjât par 2x, tâ ka 2x nav nemaz tik slikti.</sentence>
+	<sentence what="result3">Vel viens priekð jums, kopâ 3x!</sentence>
+	<sentence what="result4">Vâu,tu esi veiksminieks, dubultâ: 4x!</sentence>
 </language>

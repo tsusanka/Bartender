@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <language code="dk">
-	<sentence what="choose">Oi mate, choose a drink:</sentence>
-	<sentence what="pay">Pay</sentence>
-	<sentence what="waitingForPayment">Your payment is processing...</sentence>
-	<sentence what="done">We have it, here you go. Thanks man, good work.</sentence>
-	<sentence what="recap">You ordered:</sentence>
-	<sentence what="admin">Product administration:</sentence>
-	<sentence what="passwd">Please insert password:</sentence>
-	<sentence what="wrongPasswd">Wrong password, please choose again.</sentence>
-	<sentence what="save">Save</sentence>
-	<sentence what="letsplayabout">Let's see if you get some of our </sentence>
-	<sentence what="twist">Twist it!</sentence>
-	<sentence what="noback">No I changed my mind, just gimme 2x</sentence>
-	<sentence what="result1">Oooh, bad luck, just 1x, maybe next time.</sentence>
-	<sentence what="result2">Well you paid for two, so 2x is not that bad.</sentence>
-	<sentence what="result3">One more for you, that's 3x!</sentence>
-	<sentence what="result4">Wow, you are lucky, double: 4x!</sentence>
+	<sentence what="choose">Vælge en drink:</sentence>
+	<sentence what="pay">Betal</sentence>
+	<sentence what="waitingForPayment">Venter på din betaling...</sentence>
+	<sentence what="done">Din drink er klar, værsgo. Tak og have en god dag</sentence>
+	<sentence what="recap">Din bestiling:</sentence>
+	<sentence what="admin">Produkt administration:</sentence>
+	<sentence what="passwd">Være venlig og indtast koden:</sentence>
+	<sentence what="wrongPasswd">Koden er forkert, indtast igen.</sentence>
+	<sentence what="edit">Rediger felterne og tryk på Gem.</sentence>
+	<sentence what="save">Gem</sentence>
+	<sentence what="letsplayabout">Lad os se om du kan få noget af vores </sentence>
+	<sentence what="twist">Vend den!</sentence>
+	<sentence what="noback">Jeg har ombestemt mig, give mig 2x</sentence>
+	<sentence what="result1">Oooh, bad luck, bare 1x, måske næste gang.</sentence>
+	<sentence what="result2">Nå du har betalt for to, 2x er ikke så slemt.</sentence>
+	<sentence what="result3">En mere for dig, så er der 3x!</sentence>
+	<sentence what="result4">du er heldig, dobbelt: 4x!</sentence>
 </language>
